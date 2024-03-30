@@ -1,0 +1,14 @@
+{
+  "name": "codeflick",
+  "version": "1.0.0",
+  "description": "Codeflick is a Leetcode type service(Backend Project)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node": "^18.20.0"
+  }
+}
