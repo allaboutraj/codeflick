@@ -1,17 +1,31 @@
-const {StatusCodes} = require('http-status-codes');
+// const {StatusCodes} = require('http-status-codes');
 const NotImplemented = require('../errors/notImplemented.error');
+const { ProblemService } = require('../services')
+const { ProblemRepository} = require('../repositories')
 
+const problemService = new ProblemService(new ProblemRepository());
 
 function pingProblemController(req, res) {
     return res.json({ message : 'Ping Controller is up'});
 }
 
 
-function addProblem(req, res){
-    // return res.status(StatusCodes.NOT_IMPLEMENTED).json({ 
-    //     message : 'Not Implemented'
-    // });
+async function addProblem(req, res, next) {
+    try {
+        console.log("Incoming Request Body", req.body);
+        const newProblem = await problemService.createProblem(req.body);
+        return res.status(StatusCodes.CREATED).json({
+            success: true,
+            message : 'Successfully Created a new Problem',
+            error: {},
+            data: newProblem 
+        })
+    } catch (error) {
+        next(error);
+    }
+}
 
+function getProblem(req, res, next){
     try {
         //nothing Implemented
         throw new NotImplemented('addProblem');
@@ -20,7 +34,7 @@ function addProblem(req, res){
     }
 }
 
-function getProblem(req, res){
+function getProblems(req, res, next){
     try {
         //nothing Implemented
         throw new NotImplemented('addProblem');
@@ -29,7 +43,7 @@ function getProblem(req, res){
     }
 }
 
-function getProblems(req, res){
+function deleteProblem(req, res, next){
     try {
         //nothing Implemented
         throw new NotImplemented('addProblem');
@@ -38,16 +52,7 @@ function getProblems(req, res){
     }
 }
 
-function deleteProblem(req, res){
-    try {
-        //nothing Implemented
-        throw new NotImplemented('addProblem');
-    } catch (error) {
-        next(error);
-    }
-}
-
-function updateProblem(req, res){
+function updateProblem(req, res , next){
     try {
         //nothing Implemented
         throw new NotImplemented('addProblem');
