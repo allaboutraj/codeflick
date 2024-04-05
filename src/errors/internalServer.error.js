@@ -7,3 +7,5 @@ class InternalServerError extends BaseError {
         super("InternalServerError", StatusCodes.INTERNAL_SERVER_ERROR, `Something went wrong!!`, details);
     }
 }
+
+module.exports = InternalServerError;

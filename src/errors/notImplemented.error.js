@@ -7,3 +7,5 @@ class NotImplemented extends BaseError {
         super("NotImplemented", StatusCodes.NOT_IMPLEMENTED, `${methodName} Not Implemented`, {});
     }
 }
+
+module.exports = NotImplemented;
