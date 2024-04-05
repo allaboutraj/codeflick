@@ -6,18 +6,15 @@ function sanitizeMarkdownContent(markdownContent) {
     const turndownService = new TurndownService();
     //1. Convert markdown to HTML 
     const convertedHtml = marked.parse(markdownContent);
-    console.log("Converted HTML",convertedHtml);
 
     //2. Sanitize html content
     const sanitizedHtml = sanitizeHtmlLibrary(convertedHtml,{
-        allowedTags: sanitizeHtmlLibrary.defaults.allowedTags
+        allowedTags: sanitizeHtmlLibrary.defaults.allowedTags.concat(['img'])
     });
-    console.log("Sanitize HTML",sanitizedHtml);
 
     //3. Convert the sanitized html back to Markdown
     const sanitizedMarkdown = turndownService.turndown(sanitizedHtml);
 
-    console.log("Sanitize Markdown",sanitizedMarkdown);
     return sanitizedMarkdown;
 }
 

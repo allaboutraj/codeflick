@@ -6,7 +6,7 @@ function errorHandler(err, req, res, next) {
         return res.status(err.statusCode).json({
             success: false,
             message: err.message,
-            error: err.message,
+            error: err,
             data: {} //because this is an exception so no data is going to be provided
         });
      }

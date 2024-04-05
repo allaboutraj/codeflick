@@ -2,7 +2,6 @@ const {StatusCodes} = require('http-status-codes');
 const NotImplemented = require('../errors/notImplemented.error');
 const { ProblemService } = require('../services')
 const { ProblemRepository} = require('../repositories')
-
 const problemService = new ProblemService(new ProblemRepository());
 
 function pingProblemController(req, res) {
@@ -25,10 +24,15 @@ async function addProblem(req, res, next) {
     }
 }
 
-function getProblem(req, res, next){
+async function getProblem(req, res, next){
     try {
-        //nothing Implemented
-        throw new NotImplemented('addProblem');
+        const problem = await problemService.getProblem(req.params.id);
+        return res.status(StatusCodes.OK).json({
+            success: true,
+            error: {},
+            message: 'Successfully Fetced a problem',
+            data: problem
+        })
     } catch (error) {
         next(error);
     }

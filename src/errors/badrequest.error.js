@@ -7,3 +7,5 @@ class BadRequest extends BaseError {
         super("BadRequest", StatusCodes.BAD_REQUEST, `Invalid Structure for ${propertyName} provided`);
     }
 }
+
+module.exports = BadRequest;
