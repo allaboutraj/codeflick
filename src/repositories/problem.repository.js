@@ -53,6 +53,19 @@ class ProblemRepository{
         }
     }
 
+    // async updateProblem(id , updatedData){
+    //     try {
+    //         const updatedProblem = await Problem.findByIdAndUpdate( id, updatedData , {new : true});
+    //         if(!updatedProblem){
+    //             throw new NotFound("Problem", id);
+    //         }
+    //         return updatedProblem;
+    //     } catch (error) {
+    //         console.log(error);
+    //         throw error;
+    //     }
+    // }
+
 }
 
 

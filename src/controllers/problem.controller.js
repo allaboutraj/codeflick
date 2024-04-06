@@ -66,13 +66,18 @@ async function deleteProblem(req, res, next){
     }
 }
 
-function updateProblem(req, res , next){
-    try {
-        //nothing Implemented
-        throw new NotImplemented('addProblem');
-    } catch (error) {
-        next(error);
-    }
+async function updateProblem(req, res , next){
+//     try {
+//         const updatedProblem = await problemService.updateProblem(req.params.id, req.body);
+//         return res.status(StatusCodes.OK).json({
+//             success: true,
+//             message : 'Successfully Updated the Problem',
+//             error: {},
+//             data: updatedProblem
+//         })
+//     } catch (error) {
+//         next(error);
+//     }
 }
 
 module.exports = {

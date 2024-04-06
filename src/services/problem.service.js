@@ -36,6 +36,21 @@ class ProblemService{
         const problem = await this.problemRepository.deleteProblem(problemId);
         return problem;
     }
+
+    // async updateProblem(id , updatedData){
+    //     try {
+    //         //1. Sanitize the markdown for description
+    //         if(updatedData.description){
+    //             updatedData.description = sanitizeMarkdownContent(updatedData.description);
+    //         };
+    //         const updatedProblem = await this.problemRepository.updateProblem(id , updatedData);
+    //         console.log(updatedProblem);
+    //         return updatedProblem;
+    //     } catch (error) {
+    //         throw error;
+    //     }
+    // }
+
 }
 
 module.exports = ProblemService;
