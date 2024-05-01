@@ -49,22 +49,24 @@ Welcome to the Code Practice Platform API documentation! This API is a part of a
 
 3. The server will start running at http://localhost:3000 by default.
 
-API Endpoints
-POST /api/auth/register: Register a new user.
-POST /api/auth/login: Log in an existing user.
-GET /api/problems: Get all problems.
-GET /api/problems/:id: Get a specific problem by ID.
-POST /api/problems: Create a new problem (requires authentication).
-PUT /api/problems/:id: Update an existing problem (requires authentication).
-DELETE /api/problems/:id: Delete a problem (requires authentication).
-POST /api/practice/:id/submit: Submit a solution for a problem (requires authentication).
+## API Endpoints
 
+- **POST /api/auth/register**: Register a new user.
+- **POST /api/auth/login**: Log in an existing user.
+- **GET /api/problems**: Get all problems.
+- **GET /api/problems/:id**: Get a specific problem by ID.
+- **POST /api/problems**: Create a new problem (requires authentication).
+- **PUT /api/problems/:id**: Update an existing problem (requires authentication).
+- **DELETE /api/problems/:id**: Delete a problem (requires authentication).
+- **POST /api/practice/:id/submit**: Submit a solution for a problem (requires authentication).
 
-Routing Mechanism
+## Routing Mechanism
+
 The routing mechanism follows the structure:
 
-/api/v1/problems/ping: This route is used to check if the API is running.
-Routes start with /api, handled by apiRouter.
-apiRouter routes to v1Router.
-v1Router routes to problemRouter.
-problemRouter routes to problemController, which further interacts with the service layer.
+- **/api/v1/problems/ping**: This route is used to check if the API is running.
+- Routes start with `/api`, handled by `apiRouter`.
+- `apiRouter` routes to `v1Router`.
+- `v1Router` routes to `problemRouter`.
+- `problemRouter` routes to `problemController`, which further interacts with the service layer.
+
